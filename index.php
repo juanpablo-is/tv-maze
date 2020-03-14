@@ -88,7 +88,7 @@ if (isset($_GET['category'])) {
             var js_array = <?php echo json_encode($series); ?>;
 
             $("#btnSearch").click(function() {
-                window.open("http://localhost:3000/?category=" + category, "_self");
+                window.open("https://juanpablobg.000webhostapp.com/?category=" + category, "_self");
 
             });
 
