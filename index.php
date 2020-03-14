@@ -23,13 +23,22 @@ if (isset($_GET['category'])) {
 
 <body>
     <header id="header">
+        <?php $series = getValores($array); ?>;
 
         <a href="https://www.tvmaze.com/" target="_blank"><img src="images/logo-tvm.png" alt="Logo TvMaze"></a>
         <div id="buscar">
-            <input id="searchText" type="text" placeholder="Search.." name="search">
+            <!-- <input id="searchText" type="text" placeholder="Search.." name="search"> -->
+            <div id="buscadores">
+                <li id="buscarPrimero">Choose a category...</li>
+                <div class="contenedorCategoria visible">
+                    <?php for ($i = 0; $i < count($series); $i++) : ?>
+                        <li class="buscadoresGenerales"><?= array_keys($series)[$i] ?></li>
+                    <?php endfor; ?>
+                </div>
+            </div>
             <button id="btnSearch"><i class="fa fa-search"></i>Search</button>
         </div>
-        <a href="" target="_blank"><img src="images/github_logo.png" alt="Logo GitHub"></a>
+        <a href="https://github.com/juanpablo9910/TvMaze-Api" target="_blank"><img src="images/github_logo.png" alt="Logo GitHub"></a>
 
     </header>
 
@@ -37,7 +46,7 @@ if (isset($_GET['category'])) {
         <div class="contenedor">
             <div class="principal">
                 <?php
-                $series = getValores($array);
+
                 $series = $series[ucwords($categoria)];
 
                 for ($i = 0; $i < (count($series) > 5 ? 5 : count($series)); $i++) :
@@ -73,17 +82,15 @@ if (isset($_GET['category'])) {
     <script type="text/javascript">
         $(document).ready(function() {
 
+            let category = "comedy";
             let variableCon = 5;
+            let clickSearch = false;
             var js_array = <?php echo json_encode($series); ?>;
 
-            document.getElementById("btnSearch").onclick = function() {
-                category = document.getElementById("searchText").value;
-                buscarCategoria(category);
-            }
-
-            function buscarCategoria(category) {
+            $("#btnSearch").click(function() {
                 window.open("http://localhost:3000/?category=" + category, "_self");
-            }
+
+            });
 
             $("#btnMore").click(function() {
                 for (let i = variableCon; i < variableCon + 5; i++) {
@@ -129,6 +136,24 @@ if (isset($_GET['category'])) {
                 }
                 variableCon += 5;
 
+            });
+
+            $("#buscarPrimero").click(function() {
+                if (!clickSearch) {
+                    $(".contenedorCategoria").removeClass("visible");
+                } else {
+                    $(".contenedorCategoria").addClass("visible");
+                }
+                clickSearch = !clickSearch;
+            });
+
+            $(".buscadoresGenerales").click(function() {
+                $(".contenedorCategoria").addClass("visible");
+                clickSearch = !clickSearch;
+                let newCategory = $(this).text();
+
+                $("#buscarPrimero").text(newCategory);
+                category = newCategory;
             });
         });
     </script>
