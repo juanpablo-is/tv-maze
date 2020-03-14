@@ -27,7 +27,6 @@ if (isset($_GET['category'])) {
 
         <a href="https://www.tvmaze.com/" target="_blank"><img src="images/logo-tvm.png" alt="Logo TvMaze"></a>
         <div id="buscar">
-            <!-- <input id="searchText" type="text" placeholder="Search.." name="search"> -->
             <div id="buscadores">
                 <li id="buscarPrimero">Choose a category...</li>
                 <div class="contenedorCategoria visible">
