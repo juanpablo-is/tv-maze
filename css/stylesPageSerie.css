@@ -1,0 +1,144 @@
+:root {
+    --colorFondo: #19181F;
+    --colorFondoAtras: #222128;
+    --fuenteTitulo: 'Fira Sans', sans-serif;
+    --fuenteTexto: 'Barlow', sans-serif;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--colorFondoAtras);
+}
+
+.informacionSerie a {
+    color: white;
+    /* text-decoration: none; */
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+.principal img {
+    max-width: 30%;
+}
+
+img {
+    max-width: 100%;
+}
+
+#header {
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    height: 70px;
+    background-color: var(--colorFondo);
+    -webkit-box-shadow: 0px 5px 13px -2px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 5px 13px -2px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 5px 13px -2px rgba(0, 0, 0, 0.75);
+}
+
+#header img{
+    margin-left: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+    position: absolute;
+    height: 50px;
+}
+
+#header h1{
+    color: white;
+    font-family: var(--fuenteTitulo);
+    text-align: center;
+
+}
+
+
+
+#main {
+    width: 100%;
+    padding-top: 70px;
+    height: auto;
+}
+
+.contenedor {
+    width: 80%;
+    height: 100%;
+    background-color: var(--colorFondo);
+    margin: 0 auto;
+}
+
+.principal {
+    padding: 20px;
+    display: flex;
+}
+
+.informacionPrincipal {
+    padding-left: 15px;
+}
+
+.sinopsis h3 {
+    font-family: var(--fuenteTexto);
+    color: white;
+    font-weight: 300;
+    font-size: 14px;
+}
+
+.sinopsis h2 {
+    color: white;
+    font-family: var(--fuenteTitulo);
+    font-size: 20px;
+}
+
+.informacionSerie h2 {
+    font-family: var(--fuenteTexto);
+    color: white;
+    font-weight: 300;
+    font-size: 18px;
+}
+
+#cast {
+    color: white;
+    font-family: var(--fuenteTitulo);
+    text-align: center;
+    font-size: 28px;
+}
+
+.cast {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    padding: 10px 20px;
+}
+
+.cast img {
+    display: block;
+    margin: 0 auto;
+    border-radius: 5%;
+}
+
+.cardCast h3 {
+    color: white;
+    font-family: var(--fuenteTitulo);
+    text-align: center;
+    font-size: 21px;
+}
+
+.cardCast p{
+    font-family: var(--fuenteTexto);
+    color: white;
+    font-weight: 300;
+    text-align: center;
+}
+
+.cardCast span {
+    color: green;
+}

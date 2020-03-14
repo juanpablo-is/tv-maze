@@ -1,0 +1,166 @@
+:root {
+    --colorFondo: #19181F;
+    --colorFondoAtras: #222128;
+    --fuente: 'Roboto', sans-serif;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--colorFondoAtras);
+}
+
+#header img {
+    height: 70px;
+    padding: 10px;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+#header {
+    display: flex;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    height: 70px;
+    background-color: var(--colorFondo);
+    -webkit-box-shadow: 0px 5px 13px -2px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 5px 13px -2px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 5px 13px -2px rgba(0, 0, 0, 0.75);
+}
+
+#main {
+    width: 100%;
+    padding-top: 70px;
+    height: auto;
+}
+
+.contenedor {
+    width: 80%;
+    height: 100%;
+    background-color: var(--colorFondo);
+    margin: 0 auto;
+}
+
+.principal {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2rem;
+    padding: 10px 20px;
+}
+
+#textoSerie {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 1px solid #e3e3e3; */
+}
+
+#textoSerie>a h3 {
+    width: 80%;
+    font-family: var(--fuente);
+    color: white;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+#calificacion {
+    border-left: 2px solid #a0a0a0;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#calificacion img {
+    height: 20px;
+}
+
+#calificacion h3 {
+    margin: 2px 0;
+    font-family: var(--fuente);
+    color: white;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.cardSerie>a img {
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+    border-radius: 5%;
+}
+
+#btnAgregar {
+    width: 30%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#btnAgregar img {
+    cursor: pointer;
+    width: 15%;
+}
+
+#btnAgregar h2 {
+    padding: 10px 0;
+    margin: 0;
+    font-size: 16px;
+    font-family: var(--fuente);
+    color: white;
+}
+
+#buscar {
+    display: flex;
+    flex: 1;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+#buscar input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    width: 80%;
+    background: #f1f1f1;
+}
+
+#buscar button {
+    width: 20%;
+    padding: 10px;
+    background: #2196F3;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
+}
+
+#buscar button:hover {
+    background: #0b7dda;
+}
+
+/* Clear floats */
+
+#buscar::after {
+    content: "";
+    clear: both;
+    display: table;
+}
