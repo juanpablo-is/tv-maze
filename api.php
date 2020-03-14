@@ -5,8 +5,6 @@ if (isset($_GET['category'])) {
     $category = $_GET['category'];
     $series = getValores($array);
     $series = $series[ucwords($category)];
-
-    // print_r($series);
 }
 
 function creacion()

@@ -59,9 +59,51 @@ img {
 
 .principal {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 2rem;
-    padding: 10px 20px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: .3rem;
+    padding: 10px 5px;
+}
+
+@media only screen and (max-width: 570px) {
+    #header img {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 570px) {
+    .principal {
+        grid-template-columns: repeat(3, 1fr);
+        gap: .5rem;
+        padding: 10px 5px;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .contenedor {
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .contenedor {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .principal {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 1rem;
+        padding: 10px 10px;
+    }
+}
+
+@media only screen and (max-width: 280px) {
+    .principal {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 2rem;
+        padding: 10px 20px;
+    }
 }
 
 #textoSerie {
@@ -71,33 +113,42 @@ img {
     /* border: 1px solid #e3e3e3; */
 }
 
+#textoSerie a {
+    width: 100%;
+}
+
+@media only screen and (max-width:1000px) {
+    #textoSerie {
+        width: 80%;
+        margin: 0 auto;
+    }
+}
+
 #textoSerie>a h3 {
-    width: 80%;
+    width: 95%;
     font-family: var(--fuente);
     color: white;
     cursor: pointer;
+    text-align: center;
     font-weight: 500;
 }
 
-#calificacion {
-    border-left: 2px solid #a0a0a0;
-    width: 20%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.cardSerie {
+    position: relative;
 }
 
-#calificacion img {
-    height: 20px;
-}
-
-#calificacion h3 {
-    margin: 2px 0;
+#estrellaTexto {
+    border-top-left-radius: 35%;
+    margin: 0;
     font-family: var(--fuente);
     color: white;
-    font-size: 14px;
-    font-weight: 300;
+    font-weight: 500;
+    padding: 6px 12px;
+    position: absolute;
+    background-color: #FFCD01;
+    -webkit-box-shadow: 5px 5px 20px -2px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 5px 5px 20px -2px rgba(0, 0, 0, 0.75);
+    box-shadow: 5px 5px 20px -2px rgba(0, 0, 0, 0.75);
 }
 
 .cardSerie>a img {
@@ -114,17 +165,18 @@ img {
 }
 
 #btnAgregar img {
+    padding: 10px 0;
     cursor: pointer;
-    width: 15%;
+    height: 60px;
 }
 
-#btnAgregar h2 {
+/* #btnAgregar h2 {
     padding: 10px 0;
     margin: 0;
     font-size: 16px;
     font-family: var(--fuente);
     color: white;
-}
+} */
 
 #buscar {
     display: flex;
@@ -144,6 +196,12 @@ img {
 #buscadores {
     width: 40%;
     background: #f1f1f1;
+}
+
+@media only screen and (max-width: 950px) {
+    #buscadores {
+        width: 70%;
+    }
 }
 
 #buscarPrimero {
@@ -169,11 +227,11 @@ li {
     cursor: pointer;
 }
 
-.visible{
+.visible {
     visibility: hidden;
 }
 
-li:hover{
+li:hover {
     background-color: #e1e1e1;
 }
 
