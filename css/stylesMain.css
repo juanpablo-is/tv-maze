@@ -24,8 +24,8 @@ body {
 }
 
 a {
-    color: white;
     text-decoration: none;
+    color: white;
 }
 
 img {
@@ -169,11 +169,11 @@ li {
     cursor: pointer;
 }
 
-.visible{
+.visible {
     visibility: hidden;
 }
 
-li:hover{
+li:hover {
     background-color: #e1e1e1;
 }
 
