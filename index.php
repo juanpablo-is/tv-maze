@@ -29,7 +29,7 @@ if (isset($_GET['category'])) {
             <input id="searchText" type="text" placeholder="Search.." name="search">
             <button id="btnSearch"><i class="fa fa-search"></i>Search</button>
         </div>
-        <a href="" target="_blank"><img src="images/github_logo.png" alt="Logo GitHub"></a>
+        <a href="https://github.com/juanpablo9910/TvMaze-Api" target="_blank"><img src="images/github_logo.png" alt="Logo GitHub"></a>
 
     </header>
 
