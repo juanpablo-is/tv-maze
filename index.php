@@ -23,10 +23,10 @@ if (isset($_GET['category'])) {
 
 <body>
     <header id="header">
-        <?php $series = getValores($array); ?>;
-
+        <?php $series = getValores($array); ?>
         <a href="https://www.tvmaze.com/" target="_blank"><img src="images/logo-tvm.png" alt="Logo TvMaze"></a>
         <div id="buscar">
+            <!-- <input id="searchText" type="text" placeholder="Search.." name="search"> -->
             <div id="buscadores">
                 <li id="buscarPrimero">Choose a category...</li>
                 <div class="contenedorCategoria visible">
@@ -51,15 +51,12 @@ if (isset($_GET['category'])) {
                 for ($i = 0; $i < (count($series) > 5 ? 5 : count($series)); $i++) :
                 ?>
                     <div class="cardSerie">
+                        <h3 id="estrellaTexto"><?= $series[$i][1] ?></h3>
                         <a href="serie.php?id=<?= $series[$i][3] ?>"><img src="<?= $series[$i][2] ?>" alt="Serie"></a>
                         <div id="textoSerie">
                             <a href="serie.php?id=<?= $series[$i][3] ?>">
                                 <h3><?= $series[$i][0] ?></h3>
                             </a>
-                            <div id="calificacion">
-                                <img src="images/estrella.png" alt="estrella">
-                                <h3><?= $series[$i][1] ?></h3>
-                            </div>
                         </div>
                     </div>
                 <?php endfor; ?>
@@ -70,7 +67,6 @@ if (isset($_GET['category'])) {
                 <div id="btnAgregar">
                     <hr>
                     <img id="btnMore" src="images/more.png" alt="Agregar Más">
-                    <h2>5 More</h2>
                 </div>
             <?php endif; ?>
         </div>
@@ -98,6 +94,11 @@ if (isset($_GET['category'])) {
                         console.log(i);
                         var div = document.createElement("div");
                         div.className = "cardSerie";
+                        
+                        var h3Estrella = document.createElement("h3");
+                        h3Estrella.id = "estrellaTexto";
+                        h3Estrella.textContent = js_array[i][1];
+                        div.appendChild(h3Estrella);
 
                         var a = document.createElement("a");
                         a.href = "serie.php?id=" + js_array[i][3];
@@ -116,7 +117,7 @@ if (isset($_GET['category'])) {
                         a2.appendChild(h3);
                         div2.appendChild(a2);
 
-                        var div3 = document.createElement("div");
+                        /* var div3 = document.createElement("div");
                         div3.id = "calificacion";
                         var img2 = document.createElement("img");
                         img2.src = "images/estrella.png";
@@ -125,7 +126,7 @@ if (isset($_GET['category'])) {
                         var h3_2 = document.createElement("h3");
                         h3_2.textContent = js_array[i][1];
                         div3.appendChild(h3_2);
-                        div2.appendChild(div3);
+                        div2.appendChild(div3); */
                         div.appendChild(div2);
 
                         $(".principal").append(div);
