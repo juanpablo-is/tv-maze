@@ -94,6 +94,11 @@ if (isset($_GET['category'])) {
                         console.log(i);
                         var div = document.createElement("div");
                         div.className = "cardSerie";
+                        
+                        var h3Estrella = document.createElement("h3");
+                        h3Estrella.id = "estrellaTexto";
+                        h3Estrella.textContent = js_array[i][1];
+                        div.appendChild(h3Estrella);
 
                         var h3Estrella = document.createElement("h3");
                         h3Estrella.id = "estrellaTexto";
