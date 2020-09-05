@@ -6,7 +6,6 @@ if (isset($_GET['category'])) {
     $series = getValores($array);
     $series = $series[ucwords($category)];
 
-    // print_r($series);
 }
 
 function creacion()
@@ -18,26 +17,13 @@ function creacion()
 
 function getValores($array)
 {
-    require_once 'serieIndividual.php';
-
     $series = array();
-
-    /* for ($i = 0; $i < count($array); $i++) {
-            if (in_array(ucwords($categoria), $array[$i]['genres'])) {
-                $serie = new Serie($array[$i]['name'], $array[$i]['rating']['average'], $array[$i]['image']['medium'], $array[$i]['id']);
-                $series[] = $serie;
-            }
-        } */
 
     for ($i = 0; $i < count($array); $i++) {
         for ($j = 0; $j < count($array[$i]['genres']); $j++) {
             $serie = array($array[$i]['name'], $array[$i]['rating']['average'], $array[$i]['image']['medium'], $array[$i]['id']);
             $series[$array[$i]['genres'][$j]][] = $serie;
         }
-        /* if (in_array(ucwords($categoria), $array[$i]['genres'])) {
-                $serie = new Serie($array[$i]['name'], $array[$i]['rating']['average'], $array[$i]['image']['medium'], $array[$i]['id']);
-                $series[] = $serie;
-            } */
     }
 
     return $series;

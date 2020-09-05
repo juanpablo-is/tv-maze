@@ -8,7 +8,7 @@ if (isset($_GET['id'])) {
     $serie = $serieTotal[0];
     $casting = $serieTotal[1];
 } else {
-    header('Location: https://juanpablobg.000webhostapp.com/');
+    header('Location: /');
     die();
 }
 ?>
@@ -44,10 +44,11 @@ if (isset($_GET['id'])) {
 
                     <div class="informacionSerie">
                         <h2><strong>Show Type : </strong><?= $serie->getType() ?></h2>
-                        <h2><strong>Genres : </strong><?php
-                                                        for ($i = 0; $i < count($serie->getGenres()); $i++) :
-                                                        ?>
-                                <a href="https://juanpablobg.000webhostapp.com/?category=<?= $serie->getGenres()[$i] ?>">
+                        <h2><strong>Genres : </strong>
+                            <?php
+                            for ($i = 0; $i < count($serie->getGenres()); $i++) :
+                            ?>
+                                <a href="/?category=<?= $serie->getGenres()[$i] ?>">
                                     <?= $serie->getGenres()[$i] ?>
                                 </a>
                             <?php endfor; ?>

@@ -26,7 +26,6 @@ if (isset($_GET['category'])) {
         <?php $series = getValores($array); ?>
         <a href="https://www.tvmaze.com/" target="_blank"><img src="images/logo-tvm.png" alt="Logo TvMaze"></a>
         <div id="buscar">
-            <!-- <input id="searchText" type="text" placeholder="Search.." name="search"> -->
             <div id="buscadores">
                 <li id="buscarPrimero">Choose a category...</li>
                 <div class="contenedorCategoria visible">
@@ -74,17 +73,17 @@ if (isset($_GET['category'])) {
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
+    
+    
     <script type="text/javascript">
         $(document).ready(function() {
-
             let category = "comedy";
             let variableCon = 5;
             let clickSearch = false;
             var js_array = <?php echo json_encode($series); ?>;
 
             $("#btnSearch").click(function() {
-                window.open("https://juanpablobg.000webhostapp.com/?category=" + category, "_self");
-
+                window.open("/?category=" + category, "_self");
             });
 
             $("#btnMore").click(function() {
@@ -94,7 +93,7 @@ if (isset($_GET['category'])) {
                         console.log(i);
                         var div = document.createElement("div");
                         div.className = "cardSerie";
-                        
+
                         var h3Estrella = document.createElement("h3");
                         h3Estrella.id = "estrellaTexto";
                         h3Estrella.textContent = js_array[i][1];
@@ -121,6 +120,7 @@ if (isset($_GET['category'])) {
                         h3.textContent = js_array[i][0];
                         a2.appendChild(h3);
                         div2.appendChild(a2);
+                        div.appendChild(div2);
 
                         /* var div3 = document.createElement("div");
                         div3.id = "calificacion";
@@ -132,7 +132,6 @@ if (isset($_GET['category'])) {
                         h3_2.textContent = js_array[i][1];
                         div3.appendChild(h3_2);
                         div2.appendChild(div3); */
-                        div.appendChild(div2);
 
                         $(".principal").append(div);
                     } else {
