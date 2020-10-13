@@ -19,6 +19,7 @@ if (isset($_GET['category'])) {
     <title>TvMaze Api</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/stylesMain.css">
+    <link rel="shortcut icon" href="https://static.tvmaze.com/images/favico/favicon-160x160.png" type="image/x-icon">
 </head>
 
 <body>
@@ -36,8 +37,6 @@ if (isset($_GET['category'])) {
             </div>
             <button id="btnSearch"><i class="fa fa-search"></i>Search</button>
         </div>
-        <a href="https://github.com/juanpablo9910/TvMaze-Api" target="_blank"><img src="images/github_logo.png" alt="Logo GitHub"></a>
-
     </header>
 
     <main id="main">
@@ -51,7 +50,9 @@ if (isset($_GET['category'])) {
                 ?>
                     <div class="cardSerie">
                         <h3 id="estrellaTexto"><?= $series[$i][1] ?></h3>
-                        <a href="serie.php?id=<?= $series[$i][3] ?>"><img src="<?= $series[$i][2] ?>" alt="Serie"></a>
+                        <a href="serie.php?id=<?= $series[$i][3] ?>">
+                            <img src="<?= $series[$i][2] ?>" alt="Serie">
+                        </a>
                         <div id="textoSerie">
                             <a href="serie.php?id=<?= $series[$i][3] ?>">
                                 <h3><?= $series[$i][0] ?></h3>
@@ -73,8 +74,8 @@ if (isset($_GET['category'])) {
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
-    
-    
+
+
     <script type="text/javascript">
         $(document).ready(function() {
             let category = "comedy";

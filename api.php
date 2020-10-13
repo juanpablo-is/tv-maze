@@ -5,7 +5,6 @@ if (isset($_GET['category'])) {
     $category = $_GET['category'];
     $series = getValores($array);
     $series = $series[ucwords($category)];
-
 }
 
 function creacion()
@@ -21,7 +20,8 @@ function getValores($array)
 
     for ($i = 0; $i < count($array); $i++) {
         for ($j = 0; $j < count($array[$i]['genres']); $j++) {
-            $serie = array($array[$i]['name'], $array[$i]['rating']['average'], $array[$i]['image']['medium'], $array[$i]['id']);
+            $image = str_replace('http', 'https', $array[$i]['image']['medium']);
+            $serie = array($array[$i]['name'], $array[$i]['rating']['average'], $image, $array[$i]['id']);
             $series[$array[$i]['genres'][$j]][] = $serie;
         }
     }
@@ -39,6 +39,7 @@ function getValoresIndividual($id)
     $serieTotal = array();
 
     if (count($array) > 0) {
+        $image = str_replace('http', 'https', $array['image']['original']);
         $serie = new Serie($array['name'], $array['rating']['average'], $array['image']['original'], $array['id']);
         $serie->setSummary($array['summary']);
         $serie->setLanguage($array['language']);
@@ -49,7 +50,8 @@ function getValoresIndividual($id)
         $serie->setSchedule($array['schedule']['days'][0] . ' at ' . $array['schedule']['time']);
 
         for ($i = 0; $i < count($array['_embedded']['cast']); $i++) {
-            $castIndi = new Cast($array['_embedded']['cast'][$i]['person']['name'], $array['_embedded']['cast'][$i]['character']['name'], $array['_embedded']['cast'][$i]['person']['image']['medium']);
+            $imageCast = $array['_embedded']['cast'][$i]['person']['image']['medium'];
+            $castIndi = new Cast($array['_embedded']['cast'][$i]['person']['name'], $array['_embedded']['cast'][$i]['character']['name'], $imageCast);
             $cast[] = $castIndi;
         }
 
